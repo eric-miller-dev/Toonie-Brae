@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storefront | GitHub Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <h1>TechStore</h1>
+        <div class="cart-status">Cart: $<span id="cart-total">0.00</span> (<span id="cart-count">0</span> items)</div>
+    </nav>
+
+    <main class="product-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+            <div class="img-placeholder"></div>
+            <h3>Wireless Mouse</h3>
+            <p class="price">$25.00</p>
+            <button class="buy-btn" data-name="Wireless Mouse" data-price="25.00">Add to Cart</button>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <div class="img-placeholder"></div>
+            <h3>Mechanical Keyboard</h3>
+            <p class="price">$85.00</p>
+            <button class="buy-btn" data-name="Mechanical Keyboard" data-price="85.00">Add to Cart</button>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+            <div class="img-placeholder"></div>
+            <h3>Gaming Monitor</h3>
+            <p class="price">$199.00</p>
+            <button class="buy-btn" data-name="Gaming Monitor" data-price="199.00">Add to Cart</button>
+        </div>
+    </main>
+
+    <section id="checkout-section">
+        <button id="checkout-btn">Checkout Now</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
