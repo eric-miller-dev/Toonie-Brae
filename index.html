@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Everlasting Inner Circle Memorials</title>
+  <title>Everlasting Inner Circle – Memorial POS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Legacy Portraits and Digital Dossiers honoring the unique jobs and personalities of beloved pets."
+    content="Point-of-sale style ordering for Everlasting Inner Circle memorial packages."
   />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -16,269 +16,177 @@
       <div class="logo-mark">IC</div>
       <div class="logo-text">
         <h1>Everlasting Inner Circle</h1>
-        <p>Legacy Portraits for the ones who never left your side.</p>
+        <p>Memorial Packages POS</p>
       </div>
     </div>
-    <nav class="main-nav">
-      <button class="nav-link" data-scroll-target="#mission">Mission</button>
-      <button class="nav-link" data-scroll-target="#products">Memorials</button>
-      <button class="nav-link" data-scroll-target="#gallery">Winston &amp; Gunner</button>
-      <button class="nav-link" data-scroll-target="#order">Start a Tribute</button>
-    </nav>
   </header>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-content">
-        <h2>Because their story deserves a proper title.</h2>
-        <p>
-          We create high-quality, soulful visual tributes that honor the
-          “official jobs” and unforgettable quirks of your departed companions.
-        </p>
-        <div class="hero-actions">
-          <button class="primary" data-scroll-target="#order">Begin a Legacy Portrait</button>
-          <button class="secondary" data-scroll-target="#products">Explore Memorial Bundles</button>
-        </div>
+  <main class="layout">
+    <!-- Left: Product selection -->
+    <section class="panel panel-products">
+      <div class="panel-header">
+        <h2>Memorial Packages</h2>
+        <p class="panel-subtitle">Tap a package to add it to the order.</p>
       </div>
-      <aside class="hero-sitrep">
-        <h3>10:05 AM Media Overwatch SitRep</h3>
-        <ul>
-          <li><strong>CEO:</strong> Winston — Chief Inspiration Officer, stationed at the TV cabinet.</li>
-          <li><strong>VIP:</strong> Nee — Quiet, hopefully comfortable and resting.</li>
-          <li><strong>Environment:</strong> 50°F and sunny — perfect light for remembering.</li>
-        </ul>
-        <p class="sitrep-note">
-          Every portrait we make is reviewed under that same “Inner Circle” standard.
-        </p>
-      </aside>
-    </section>
 
-    <!-- Mission -->
-    <section id="mission" class="panel panel-alt">
-      <div class="panel-inner">
-        <h2>Our Mission</h2>
-        <p class="lead">
-          To provide pet parents with heirloom-quality Legacy Portraits and Digital Dossiers
-          that capture the jobs, titles, and tiny rituals that made their companions irreplaceable.
-        </p>
-
-        <div class="grid two-col">
-          <article class="card">
-            <h3>The Inner Circle Philosophy</h3>
-            <p>
-              We treat every pet as if they’re part of our own Inner Circle—like Winston and Gunner.
-              That means careful photo selection, gentle editing, and language that feels like
-              it came from someone who truly knew them.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>The Pack We Serve</h3>
-            <ul class="bullet-list">
-              <li><strong>Senior Pet Parents:</strong> Those who shared a decade or more of life together.</li>
-              <li><strong>Veterinary Clinics:</strong> Comforting gifts for grieving clients.</li>
-              <li><strong>Online Communities:</strong> Thoughtful tributes for “In Memoriam” posts.</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Products -->
-    <section id="products" class="panel">
-      <div class="panel-inner">
-        <h2>Memorial Offerings</h2>
-        <p class="lead">
-          You’re not just ordering a photo—you’re commissioning a Legacy Portrait with a story.
-        </p>
-
-        <div class="grid three-col">
-          <article class="card product-card">
+      <div class="product-grid">
+        <button
+          class="product-card"
+          data-product-id="legacy"
+          data-name="Legacy Portrait"
+          data-price="120"
+        >
+          <div class="product-main">
             <h3>Legacy Portrait</h3>
-            <p class="product-tagline">A framed, high-resolution portrait with an official title.</p>
-            <ul class="bullet-list">
-              <li>Carefully edited photo with that “Inner Circle glow.”</li>
-              <li>Custom “Official Title” (e.g., CEO of Couch Security, Safety Inspector, The Boss).</li>
-              <li>Printed on archival, acid-free paper.</li>
-            </ul>
-            <p class="product-meta">Ideal for: Mantels, desks, and the spot they always guarded.</p>
-          </article>
+            <p class="product-desc">
+              Framed, high-resolution portrait with official title on archival paper.
+            </p>
+          </div>
+          <div class="product-meta">
+            <span class="product-price">$120</span>
+            <span class="product-tag">Most chosen</span>
+          </div>
+        </button>
 
-          <article class="card product-card">
+        <button
+          class="product-card"
+          data-product-id="dossier"
+          data-name="Dossier &amp; Service Record"
+          data-price="80"
+        >
+          <div class="product-main">
             <h3>Dossier &amp; Service Record</h3>
-            <p class="product-tagline">Their story, typed and preserved.</p>
-            <ul class="bullet-list">
-              <li>Short, typed “Dossier” printed on the back of the frame.</li>
-              <li>Includes their best traits and “job history” (e.g., Master of the Lever Maneuver).</li>
-              <li>Optional “Service Record” timeline of life milestones.</li>
-            </ul>
-            <p class="product-meta">Ideal for: Families who want their words to live with the photo.</p>
-          </article>
+            <p class="product-desc">
+              Typed story and service record, ready for frame back or digital archive.
+            </p>
+          </div>
+          <div class="product-meta">
+            <span class="product-price">$80</span>
+          </div>
+        </button>
 
-          <article class="card product-card">
+        <button
+          class="product-card"
+          data-product-id="bundle"
+          data-name="Memorial Bundle"
+          data-price="185"
+        >
+          <div class="product-main">
             <h3>Memorial Bundle</h3>
-            <p class="product-tagline">A complete tribute in one package.</p>
-            <ul class="bullet-list">
-              <li>Legacy Portrait + Dossier &amp; Service Record.</li>
-              <li>Custom “Service Medal” card or small keepsake.</li>
-              <li>Optional dedicated candle label with their title.</li>
-            </ul>
-            <p class="product-meta">Ideal for: Gifts from friends, family, or veterinary offices.</p>
-          </article>
-        </div>
+            <p class="product-desc">
+              Legacy Portrait + Dossier &amp; Service Record + small keepsake.
+            </p>
+          </div>
+          <div class="product-meta">
+            <span class="product-price">$185</span>
+            <span class="product-tag product-tag-accent">Best value</span>
+          </div>
+        </button>
 
-        <div class="grid two-col stack-on-mobile">
-          <article class="card">
+        <button
+          class="product-card"
+          data-product-id="digital"
+          data-name="Digital Dossier"
+          data-price="45"
+        >
+          <div class="product-main">
             <h3>Digital Dossier</h3>
-            <p>
-              For those who want to carry their companion’s story everywhere, we offer a
-              <strong>Digital Dossier</strong>—a shareable, phone-friendly version of the tribute.
+            <p class="product-desc">
+              Phone-friendly, shareable memorial file delivered via email.
             </p>
-            <ul class="bullet-list">
-              <li>Optimized for phones and tablets.</li>
-              <li>Perfect for sharing with friends and social media communities.</li>
-              <li>Delivered as a downloadable file after approval.</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>Small-Batch, Low-Risk</h3>
-            <p>
-              We operate like a small-batch studio: frames, ink, and materials are purchased
-              as orders come in. Your investment goes directly into the care and craft of
-              your memorial—not a warehouse.
-            </p>
-          </article>
-        </div>
+          </div>
+          <div class="product-meta">
+            <span class="product-price">$45</span>
+          </div>
+        </button>
       </div>
     </section>
 
-    <!-- Gallery -->
-    <section id="gallery" class="panel panel-alt">
-      <div class="panel-inner">
-        <h2>The Winston &amp; Gunner Gallery</h2>
-        <p class="lead">
-          This is our “front porch” showroom—real examples of the love and detail that go into
-          every Inner Circle memorial.
-        </p>
+    <!-- Right: Order + checkout -->
+    <section class="panel panel-order">
+      <div class="panel-header">
+        <h2>Current Order</h2>
+        <p class="panel-subtitle">Inner Circle checkout for one companion at a time.</p>
+      </div>
 
-        <div class="grid three-col gallery-grid">
-          <figure class="gallery-item">
-            <div class="gallery-photo placeholder-photo">
-              <span>Winston</span>
-            </div>
-            <figcaption>
-              <strong>Winston</strong><br />
-              CEO of Media Overwatch<br />
-              <span class="caption-note">Stationed at the TV cabinet, monitoring all suspicious squirrels and doorbells.</span>
-            </figcaption>
-          </figure>
+      <div class="order-summary" id="orderSummary">
+        <p class="order-empty">No items yet. Tap a package to begin.</p>
+      </div>
 
-          <figure class="gallery-item">
-            <div class="gallery-photo placeholder-photo">
-              <span>Gunner</span>
-            </div>
-            <figcaption>
-              <strong>Gunner</strong><br />
-              Director of Couch Security<br />
-              <span class="caption-note">Responsible for all snuggle operations and blanket inspections.</span>
-            </figcaption>
-          </figure>
-
-          <figure class="gallery-item">
-            <div class="gallery-photo placeholder-photo">
-              <span>Inner Circle</span>
-            </div>
-            <figcaption>
-              <strong>Your Companion</strong><br />
-              Title to be discovered together<br />
-              <span class="caption-note">We’ll help you find the perfect “official job” that fits their spirit.</span>
-            </figcaption>
-          </figure>
+      <div class="order-totals">
+        <div class="totals-row">
+          <span>Subtotal</span>
+          <span id="subtotal">$0.00</span>
+        </div>
+        <div class="totals-row">
+          <span>Estimated Tax</span>
+          <span id="tax">$0.00</span>
+        </div>
+        <div class="totals-row totals-row-strong">
+          <span>Total</span>
+          <span id="total">$0.00</span>
         </div>
       </div>
+
+      <form id="checkoutForm" class="checkout-form" novalidate>
+        <h3>Companion Details</h3>
+
+        <div class="form-group">
+          <label for="petName">Pet’s Name</label>
+          <input type="text" id="petName" name="petName" required />
+        </div>
+
+        <div class="form-group">
+          <label for="petTitle">Official Title</label>
+          <input
+            type="text"
+            id="petTitle"
+            name="petTitle"
+            placeholder="e.g., CEO of Couch Security"
+            required
+          />
+        </div>
+
+        <h3>Contact</h3>
+
+        <div class="form-group">
+          <label for="yourName">Your Name</label>
+          <input type="text" id="yourName" name="yourName" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="notes">Notes (optional)</label>
+          <textarea
+            id="notes"
+            name="notes"
+            rows="3"
+            placeholder="Anything special we should know about their story or timing?"
+          ></textarea>
+        </div>
+
+        <div class="checkout-actions">
+          <button type="submit" class="primary" id="checkoutBtn" disabled>
+            Confirm Order &amp; Generate Summary
+          </button>
+          <button type="button" class="secondary" id="clearOrderBtn">
+            Clear Order
+          </button>
+        </div>
+      </form>
+
+      <section id="orderReceipt" class="receipt hidden">
+        <h3>Order Summary</h3>
+        <pre id="receiptContent" class="receipt-content"></pre>
+      </section>
     </section>
+  </main>
 
-    <!-- Order / Intake Form -->
-    <section id="order" class="panel">
-      <div class="panel-inner">
-        <h2>Start a Tribute</h2>
-        <p class="lead">
-          Share a few details about your companion and the kind of memorial you’re envisioning.
-          We’ll follow up with a gentle, human reply—no automated checkout, just conversation.
-        </p>
-
-        <form id="tribute-form" class="tribute-form" novalidate>
-          <div class="grid two-col stack-on-mobile">
-            <div class="form-group">
-              <label for="petName">Pet’s Name</label>
-              <input type="text" id="petName" name="petName" required />
-              <small class="hint">What did you call them most often?</small>
-            </div>
-
-            <div class="form-group">
-              <label for="petTitle">Official Title</label>
-              <input
-                type="text"
-                id="petTitle"
-                name="petTitle"
-                placeholder="e.g., CEO of Couch Security, Safety Inspector, The Boss"
-                required
-              />
-              <small class="hint">We can help brainstorm if you’re not sure yet.</small>
-            </div>
-          </div>
-
-          <div class="grid two-col stack-on-mobile">
-            <div class="form-group">
-              <label for="yourName">Your Name</label>
-              <input type="text" id="yourName" name="yourName" required />
-            </div>
-
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" required />
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="relationshipLength">How long were you together?</label>
-            <select id="relationshipLength" name="relationshipLength">
-              <option value="">Select an option</option>
-              <option value="0-3">0–3 years</option>
-              <option value="3-7">3–7 years</option>
-              <option value="7-10">7–10 years</option>
-              <option value="10+">10+ years</option>
-            </select>
-          </div>
-
-          <fieldset class="form-group">
-            <legend>What are you interested in?</legend>
-            <div class="checkbox-row">
-              <label>
-                <input type="checkbox" name="interest" value="legacy-portrait" />
-                Legacy Portrait (framed photo with title)
-              </label>
-              <label>
-                <input type="checkbox" name="interest" value="dossier" />
-                Dossier &amp; Service Record
-              </label>
-              <label>
-                <input type="checkbox" name="interest" value="bundle" />
-                Memorial Bundle
-              </label>
-              <label>
-                <input type="checkbox" name="interest" value="digital" />
-                Digital Dossier
-              </label>
-            </div>
-          </fieldset>
-
-          <div class="form-group">
-            <label for="traits">
-              Tell us about their “jobs,” quirks, and best traits
-            </label>
-            <textarea
-              id="traits"
+  <script src="script.js"></script>
+</body>
+</html>
 
