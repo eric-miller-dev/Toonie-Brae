@@ -3,44 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Storefront | GitHub Shop</title>
+    <title>Everlasting Inner Circle | Pet Memorials</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav>
-        <h1>TechStore</h1>
-        <div class="cart-status">Cart: $<span id="cart-total">0.00</span> (<span id="cart-count">0</span> items)</div>
+        <div class="logo">
+            <h1>Everlasting Inner Circle</h1>
+            <p>Soulful Visual Tributes & Legacy Portraits</p>
+        </div>
+        <div class="cart-status">🛒 Cart: $<span id="cart-total">0.00</span></div>
     </nav>
 
+    <header class="hero">
+        <h2>Honor Their Service</h2>
+        <p>Turning the "Inner Circle" philosophy into a lasting legacy for your best friends.</p>
+    </header>
+
     <main class="product-grid">
-        <!-- Product 1 -->
+        <!-- Product 1: Legacy Portrait -->
         <div class="product-card">
-            <div class="img-placeholder"></div>
-            <h3>Wireless Mouse</h3>
-            <p class="price">$25.00</p>
-            <button class="buy-btn" data-name="Wireless Mouse" data-price="25.00">Add to Cart</button>
+            <div class="badge">Most Popular</div>
+            <h3>The Legacy Portrait</h3>
+            <p class="description">High-resolution print enhanced with an "Official Title" (CEO, Safety Inspector, etc.).</p>
+            <p class="price">$45.00</p>
+            <button class="buy-btn" data-name="Legacy Portrait" data-price="45.00">Add to Order</button>
         </div>
 
-        <!-- Product 2 -->
+        <!-- Product 2: Memorial Bundle -->
         <div class="product-card">
-            <div class="img-placeholder"></div>
-            <h3>Mechanical Keyboard</h3>
+            <h3>The Memorial Bundle</h3>
+            <p class="description">Framed photo paired with a "Service Medal" and a dedicated memorial candle.</p>
             <p class="price">$85.00</p>
-            <button class="buy-btn" data-name="Mechanical Keyboard" data-price="85.00">Add to Cart</button>
+            <button class="buy-btn" data-name="Memorial Bundle" data-price="85.00">Add to Order</button>
         </div>
 
-        <!-- Product 3 -->
+        <!-- Product 3: Digital Dossier -->
         <div class="product-card">
-            <div class="img-placeholder"></div>
-            <h3>Gaming Monitor</h3>
-            <p class="price">$199.00</p>
-            <button class="buy-btn" data-name="Gaming Monitor" data-price="199.00">Add to Cart</button>
+            <h3>Digital Dossier</h3>
+            <p class="description">A mobile-ready "Service Record" listing their best traits and "Media Overwatch" history.</p>
+            <p class="price">$20.00</p>
+            <button class="buy-btn" data-name="Digital Dossier" data-price="20.00">Add to Order</button>
         </div>
     </main>
 
     <section id="checkout-section">
-        <button id="checkout-btn">Checkout Now</button>
+        <div class="mission-statement">
+            <p>"Our mission is to honor the unique jobs and personalities of our departed companions."</p>
+        </div>
+        <button id="checkout-btn">Finalize Tribute Order</button>
     </section>
+
+    <footer>
+        <p>Inspired by Winston & Gunner | Johnson City, TN</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>

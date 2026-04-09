@@ -1,36 +1,26 @@
-let cartTotal = 0;
-let itemCount = 0;
+let total = 0;
 
-const totalDisplay = document.getElementById('cart-total');
-const countDisplay = document.getElementById('cart-count');
-const buttons = document.querySelectorAll('.buy-btn');
+const cartTotalDisplay = document.getElementById('cart-total');
+const buyButtons = document.querySelectorAll('.buy-btn');
 
-buttons.forEach(button => {
+buyButtons.forEach(button => {
     button.addEventListener('click', () => {
-        const price = parseFloat(button.getAttribute('data-price'));
-        const name = button.getAttribute('data-name');
+        const itemName = button.getAttribute('data-name');
+        const itemPrice = parseFloat(button.getAttribute('data-price'));
 
-        // Update Logic
-        cartTotal += price;
-        itemCount++;
+        total += itemPrice;
+        cartTotalDisplay.textContent = total.toFixed(2);
 
-        // Update UI
-        totalDisplay.textContent = cartTotal.toFixed(2);
-        countDisplay.textContent = itemCount;
-
-        alert(`${name} added to cart!`);
+        alert(`${itemName} has been added to your memorial request.`);
     });
 });
 
 document.getElementById('checkout-btn').addEventListener('click', () => {
-    if (itemCount > 0) {
-        alert(`Thank you for your purchase of $${cartTotal.toFixed(2)}!`);
-        // Reset cart
-        cartTotal = 0;
-        itemCount = 0;
-        totalDisplay.textContent = "0.00";
-        countDisplay.textContent = "0";
+    if (total > 0) {
+        alert(`Request Sent. We will begin crafting your Legacy Tribute ($${total.toFixed(2)}).`);
+        total = 0;
+        cartTotalDisplay.textContent = "0.00";
     } else {
-        alert("Your cart is empty!");
+        alert("Please select a tribute to proceed.");
     }
 });
