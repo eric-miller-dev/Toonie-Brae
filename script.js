@@ -1,49 +1,74 @@
-let total = 0;
-const modal = document.getElementById("payment-modal");
-const checkoutBtn = document.getElementById("checkout-btn");
-const cartTotalDisplay = document.getElementById('cart-total');
-const modalTotalDisplay = document.getElementById('modal-total');
-const closeBtn = document.querySelector(".close-modal");
+// Smooth scroll for nav + hero buttons
+document.querySelectorAll("[data-scroll-target]").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const target = btn.getAttribute("data-scroll-target");
+    if (!target) return;
+    const el = document.querySelector(target);
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+});
 
-// Add items to cart
-document.querySelectorAll('.buy-btn').forEach(button => {
-    button.addEventListener('click', () => {
-        total += parseFloat(button.getAttribute('data-price'));
-        cartTotalDisplay.textContent = total.toFixed(2);
-        alert("Added to memorial request.");
+// Tribute form + sample dossier generation
+const form = document.getElementById("tribute-form");
+const clearBtn = document.getElementById("clearForm");
+const previewSection = document.getElementById("preview");
+const previewContent = document.getElementById("previewContent");
+
+function getCheckedValues(name) {
+  return Array.from(form.querySelectorAll(`input[name="${name}"]:checked`)).map(
+    (el) => el.value
+  );
+}
+
+function buildDossierPreview(data) {
+  const {
+    petName,
+    petTitle,
+    yourName,
+    email,
+    relationshipLength,
+    interests,
+    traits,
+    notes,
+  } = data;
+
+  const lines = [];
+
+  lines.push(`EVERLASTING INNER CIRCLE`);
+  lines.push(`LEGACY DOSSIER – PREVIEW`);
+  lines.push(`----------------------------------------`);
+  lines.push(`Name: ${petName || "Your Companion"}`);
+  lines.push(`Official Title: ${petTitle || "To Be Determined"}`);
+  lines.push("");
+
+  if (relationshipLength) {
+    lines.push(`Years of Service: ${relationshipLength} years together`);
+  } else {
+    lines.push(`Years of Service: (we'll fill this in together)`);
+  }
+
+  if (interests.length) {
+    lines.push("");
+    lines.push(`Requested Memorials:`);
+    interests.forEach((interest) => {
+      switch (interest) {
+        case "legacy-portrait":
+          lines.push(`  • Legacy Portrait (framed photo with title)`);
+          break;
+        case "dossier":
+          lines.push(`  • Dossier & Service Record`);
+          break;
+        case "bundle":
+          lines.push(`  • Memorial Bundle`);
+          break;
+        case "digital":
+          lines.push(`  • Digital Dossier`);
+          break;
+        default:
+          lines.push(`  • ${interest}`);
+      }
     });
-});
+  }
 
-// Open Payment Modal
-checkoutBtn.addEventListener('click', () => {
-    if (total > 0) {
-        modalTotalDisplay.textContent = `$${total.toFixed(2)}`;
-        modal.style.display = "block";
-    } else {
-        alert("Please select a tribute to proceed.");
-    }
-});
-
-// Close Modal
-closeBtn.onclick = () => modal.style.display = "none";
-window.onclick = (event) => { if (event.target == modal) modal.style.display = "none"; }
-
-// Handle Payment Submission
-document.getElementById('payment-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Simulate Processing
-    const btn = document.getElementById('pay-now-btn');
-    btn.disabled = true;
-    btn.textContent = "Processing...";
-
-    setTimeout(() => {
-        alert("Payment Successful! Everlasting Inner Circle has received your tribute request.");
-        total = 0;
-        cartTotalDisplay.textContent = "0.00";
-        modal.style.display = "none";
-        btn.disabled = false;
-        btn.textContent = "Pay & Complete Order";
-        document.getElementById('payment-form').reset();
-    }, 2000);
-});
+  lines
