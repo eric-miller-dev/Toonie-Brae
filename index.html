@@ -59,5 +59,35 @@
     </footer>
 
     <script src="script.js"></script>
+
+<!-- Payment Modal -->
+<div id="payment-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Secure Checkout</h2>
+        <p>Order Total: <span id="modal-total">$0.00</span></p>
+        <form id="payment-form">
+            <div class="input-group">
+                <label>Cardholder Name</label>
+                <input type="text" id="card-name" placeholder="John Doe" required>
+            </div>
+            <div class="input-group">
+                <label>Card Number</label>
+                <input type="text" id="card-number" placeholder="1234 5678 9101 1121" maxlength="19" required>
+            </div>
+            <div class="row">
+                <div class="input-group">
+                    <label>Expiry Date</label>
+                    <input type="text" placeholder="MM/YY" maxlength="5" required>
+                </div>
+                <div class="input-group">
+                    <label>CVC</label>
+                    <input type="text" placeholder="123" maxlength="3" required>
+                </div>
+            </div>
+            <button type="submit" id="pay-now-btn">Pay & Complete Order</button>
+        </form>
+    </div>
+</div>
 </body>
 </html>

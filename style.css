@@ -1,114 +1,65 @@
-:root {
-    --primary-color: #2c3e50; /* Charcoal for professional feel */
-    --accent-color: #d4af37;  /* Gold for "Heirloom" quality */
-    --bg-color: #fcfaf7;      /* Warm cream paper feel */
+/* Modal Background */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
 }
 
-body {
-    font-family: 'Georgia', serif;
-    margin: 0;
-    background-color: var(--bg-color);
-    color: var(--primary-color);
-}
-
-nav {
-    background: var(--primary-color);
-    color: white;
-    padding: 20px 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 4px solid var(--accent-color);
-}
-
-.logo h1 { margin: 0; font-style: italic; }
-.logo p { margin: 5px 0 0; font-size: 0.9rem; opacity: 0.8; }
-
-.hero {
-    text-align: center;
-    padding: 60px 20px;
-    background: #fff;
-}
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    padding: 40px 10%;
-}
-
-.product-card {
-    background: white;
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
     padding: 30px;
-    border: 1px solid #eee;
-    border-radius: 4px;
-    text-align: center;
-    transition: transform 0.3s;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 8px;
     position: relative;
 }
 
-.product-card:hover { transform: translateY(-5px); }
-
-.badge {
+.close-modal {
     position: absolute;
+    right: 20px;
     top: 10px;
-    right: 10px;
-    background: var(--accent-color);
-    color: white;
-    padding: 5px 10px;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-}
-
-.description {
-    font-size: 0.95rem;
-    color: #666;
-    height: 60px;
-}
-
-.price {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: 20px 0;
-}
-
-.buy-btn {
-    background: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 12px 25px;
+    font-size: 28px;
     cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
-.buy-btn:hover { background: #444; }
-
-#checkout-section {
-    text-align: center;
-    padding: 60px 0;
-    background: white;
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
 }
 
-.mission-statement {
-    font-style: italic;
-    margin-bottom: 30px;
-    color: #555;
-}
-
-#checkout-btn {
-    background: var(--accent-color);
-    color: white;
-    border: none;
-    padding: 20px 40px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-footer {
-    text-align: center;
-    padding: 40px;
+.input-group label {
+    display: block;
     font-size: 0.8rem;
-    opacity: 0.6;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+#pay-now-btn {
+    width: 100%;
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
 }

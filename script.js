@@ -1,26 +1,49 @@
 let total = 0;
-
+const modal = document.getElementById("payment-modal");
+const checkoutBtn = document.getElementById("checkout-btn");
 const cartTotalDisplay = document.getElementById('cart-total');
-const buyButtons = document.querySelectorAll('.buy-btn');
+const modalTotalDisplay = document.getElementById('modal-total');
+const closeBtn = document.querySelector(".close-modal");
 
-buyButtons.forEach(button => {
+// Add items to cart
+document.querySelectorAll('.buy-btn').forEach(button => {
     button.addEventListener('click', () => {
-        const itemName = button.getAttribute('data-name');
-        const itemPrice = parseFloat(button.getAttribute('data-price'));
-
-        total += itemPrice;
+        total += parseFloat(button.getAttribute('data-price'));
         cartTotalDisplay.textContent = total.toFixed(2);
-
-        alert(`${itemName} has been added to your memorial request.`);
+        alert("Added to memorial request.");
     });
 });
 
-document.getElementById('checkout-btn').addEventListener('click', () => {
+// Open Payment Modal
+checkoutBtn.addEventListener('click', () => {
     if (total > 0) {
-        alert(`Request Sent. We will begin crafting your Legacy Tribute ($${total.toFixed(2)}).`);
-        total = 0;
-        cartTotalDisplay.textContent = "0.00";
+        modalTotalDisplay.textContent = `$${total.toFixed(2)}`;
+        modal.style.display = "block";
     } else {
         alert("Please select a tribute to proceed.");
     }
+});
+
+// Close Modal
+closeBtn.onclick = () => modal.style.display = "none";
+window.onclick = (event) => { if (event.target == modal) modal.style.display = "none"; }
+
+// Handle Payment Submission
+document.getElementById('payment-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // Simulate Processing
+    const btn = document.getElementById('pay-now-btn');
+    btn.disabled = true;
+    btn.textContent = "Processing...";
+
+    setTimeout(() => {
+        alert("Payment Successful! Everlasting Inner Circle has received your tribute request.");
+        total = 0;
+        cartTotalDisplay.textContent = "0.00";
+        modal.style.display = "none";
+        btn.disabled = false;
+        btn.textContent = "Pay & Complete Order";
+        document.getElementById('payment-form').reset();
+    }, 2000);
 });
