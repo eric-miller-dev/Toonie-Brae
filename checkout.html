@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Everlasting Inner Circle – Memorial POS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Point-of-sale style ordering for Everlasting Inner Circle memorial packages."
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo-block">
+      <div class="logo-mark">IC</div>
+      <div class="logo-text">
+        <h1>Everlasting Inner Circle</h1>
+        <p>Memorial Packages POS</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- Left: Product selection -->
+    <section class="panel panel-products">
+      <div class="panel-header">
+        <h2>Memorial Packages</h2>
+        <p class="panel-subtitle">Tap a package to add it to the order.</p>
+      </div>
+
+      <div class="product-grid">
+        <button
+          class="product-card"
+          data-product-id="legacy"
+          data-name="Legacy Portrait"
+          data-price="120"
+        >
+          <div class="product-main">
+            <h3>Legacy Portrait</h3>
+            <p class="product-desc">
+              Framed, high-resolution portrait with official title on archival paper.
+            </p>
+          </div>
+          <div class="product-meta">
+            <span class="product-price">$120</span>
+            <span class="product-tag">Most chosen</span>
+          </div>
+        </button>
+
+        <button
+          class="product-card"
+          data-product-id="dossier"
+          data-name="Dossier &amp; Service Record"
+          data-price="80"
+        >
+          <div class="product-main">
+            <h3>Dossier &amp; Service Record</h3>
+            <p class="product-desc">
+              Typed story and service record, ready for frame back or digital archive.
+            </p>
+          </div>
+          <div class="product-meta">
+            <span class="product-price">$80</span>
+          </div>
+        </button>
+
+        <button
+          class="product-card"
+          data-product-id="bundle"
+          data-name="Memorial Bundle"
+          data-price="185"
+        >
+          <div class="product-main">
+            <h3>Memorial Bundle</h3>
+            <p class="product-desc">
+              Legacy Portrait + Dossier &amp; Service Record + small keepsake.
+            </p>
+          </div>
+          <div class="product-meta">
+            <span class="product-price">$185</span>
+            <span class="product-tag product-tag-accent">Best value</span>
+          </div>
+        </button>
+
+        <button
+          class="product-card"
+          data-product-id="digital"
+          data-name="Digital Dossier"
+          data-price="45"
+        >
+          <div class="product-main">
+            <h3>Digital Dossier</h3>
+            <p class="product-desc">
+              Phone-friendly, shareable memorial file delivered via email.
+            </p>
+          </div>
+          <div class="product-meta">
+            <span class="product-price">$45</span>
+          </div>
+        </button>
+      </div>
+    </section>
+
+    <!-- Right: Order + checkout -->
+    <section class="panel panel-order">
+      <div class="panel-header">
+        <h2>Current Order</h2>
+        <p class="panel-subtitle">Inner Circle checkout for one companion at a time.</p>
+      </div>
+
+      <div class="order-summary" id="orderSummary">
+        <p class="order-empty">No items yet. Tap a package to begin.</p>
+      </div>
+
+      <div class="order-totals">
+        <div class="totals-row">
+          <span>Subtotal</span>
+          <span id="subtotal">$0.00</span>
+        </div>
+        <div class="totals-row">
+          <span>Estimated Tax</span>
+          <span id="tax">$0.00</span>
+        </div>
+        <div class="totals-row totals-row-strong">
+          <span>Total</span>
+          <span id="total">$0.00</span>
+        </div>
+      </div>
+
+      <form id="checkoutForm" class="checkout-form" novalidate>
+        <h3>Companion Details</h3>
+
+        <div class="form-group">
+          <label for="petName">Pet’s Name</label>
+          <input type="text" id="petName" name="petName" required />
+        </div>
+
+        <div class="form-group">
+          <label for="petTitle">Official Title</label>
+          <input
+            type="text"
+            id="petTitle"
+            name="petTitle"
+            placeholder="e.g., CEO of Couch Security"
+            required
+          />
+        </div>
+
+        <h3>Contact</h3>
+
+        <div class="form-group">
+          <label for="yourName">Your Name</label>
+          <input type="text" id="yourName" name="yourName" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="notes">Notes (optional)</label>
+          <textarea
+            id="notes"
+            name="notes"
+            rows="3"
+            placeholder="Anything special we should know about their story or timing?"
+          ></textarea>
+        </div>
+
+        <div class="checkout-actions">
+          <button type="submit" class="primary" id="checkoutBtn" disabled>
+            Confirm Order &amp; Generate Summary
+          </button>
+          <button type="button" class="secondary" id="clearOrderBtn">
+            Clear Order
+          </button>
+        </div>
+      </form>
+
+      <section id="orderReceipt" class="receipt hidden">
+        <h3>Order Summary</h3>
+        <pre id="receiptContent" class="receipt-content"></pre>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

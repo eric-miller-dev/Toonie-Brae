@@ -1,192 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Everlasting Inner Circle – Memorial POS</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="Point-of-sale style ordering for Everlasting Inner Circle memorial packages."
-  />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Everlasting Inner Circle – Welcome</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="logo-block">
-      <div class="logo-mark">IC</div>
-      <div class="logo-text">
-        <h1>Everlasting Inner Circle</h1>
-        <p>Memorial Packages POS</p>
-      </div>
-    </div>
-  </header>
+    <header class="site-header">
+        <div class="logo-block">
+            <div class="logo-mark">IC</div>
+            <div class="logo-text">
+                <h1>Everlasting Inner Circle</h1>
+                <p>Memorial Packages</p>
+            </div>
+        </div>
+    </header>
 
-  <main class="layout">
-    <!-- Left: Product selection -->
-    <section class="panel panel-products">
-      <div class="panel-header">
-        <h2>Memorial Packages</h2>
-        <p class="panel-subtitle">Tap a package to add it to the order.</p>
-      </div>
-
-      <div class="product-grid">
-        <button
-          class="product-card"
-          data-product-id="legacy"
-          data-name="Legacy Portrait"
-          data-price="120"
-        >
-          <div class="product-main">
-            <h3>Legacy Portrait</h3>
-            <p class="product-desc">
-              Framed, high-resolution portrait with official title on archival paper.
+    <main class="layout landing-layout">
+        <section class="panel panel-hero">
+            <div class="panel-header">
+                <h2>Celebrate the Life of Your Cherished Companion</h2>
+            </div>
+            <p class="hero-description">
+                At Everlasting Inner Circle, we provide thoughtfully designed memorial packages to honor and preserve the memories of your beloved pets.
             </p>
-          </div>
-          <div class="product-meta">
-            <span class="product-price">$120</span>
-            <span class="product-tag">Most chosen</span>
-          </div>
-        </button>
+            <div class="hero-nav">
+                <a href="sales-items.html" class="primary">Browse All Packages</a>
+                <a href="checkout.html" class="secondary">Start Your Order</a>
+            </div>
+        </section>
 
-        <button
-          class="product-card"
-          data-product-id="dossier"
-          data-name="Dossier &amp; Service Record"
-          data-price="80"
-        >
-          <div class="product-main">
-            <h3>Dossier &amp; Service Record</h3>
-            <p class="product-desc">
-              Typed story and service record, ready for frame back or digital archive.
-            </p>
-          </div>
-          <div class="product-meta">
-            <span class="product-price">$80</span>
-          </div>
-        </button>
+        <section class="panel panel-featured">
+            <div class="panel-header">
+                <h2>Our Memorial Packages</h2>
+                <p class="panel-subtitle">Choose the perfect way to honor your companion.</p>
+            </div>
+            <div class="featured-grid">
+                <div class="featured-card">
+                    <h3>Legacy Portrait</h3>
+                    <p class="featured-price">$120</p>
+                    <p class="featured-desc">Framed portrait with official title on archival paper.</p>
+                    <p class="featured-tag">Most Chosen</p>
+                </div>
+                <div class="featured-card">
+                    <h3>Dossier &amp; Service Record</h3>
+                    <p class="featured-price">$80</p>
+                    <p class="featured-desc">Typed story and service record for frame or archive.</p>
+                </div>
+                <div class="featured-card featured-accent">
+                    <h3>Memorial Bundle</h3>
+                    <p class="featured-price">$185</p>
+                    <p class="featured-desc">Portrait + Dossier + small keepsake.</p>
+                    <p class="featured-tag featured-tag-best">Best Value</p>
+                </div>
+                <div class="featured-card">
+                    <h3>Digital Dossier</h3>
+                    <p class="featured-price">$45</p>
+                    <p class="featured-desc">Shareable memorial file delivered via email.</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
-        <button
-          class="product-card"
-          data-product-id="bundle"
-          data-name="Memorial Bundle"
-          data-price="185"
-        >
-          <div class="product-main">
-            <h3>Memorial Bundle</h3>
-            <p class="product-desc">
-              Legacy Portrait + Dossier &amp; Service Record + small keepsake.
-            </p>
-          </div>
-          <div class="product-meta">
-            <span class="product-price">$185</span>
-            <span class="product-tag product-tag-accent">Best value</span>
-          </div>
-        </button>
+    <footer class="site-footer">
+        <p>&copy; 2026 Everlasting Inner Circle. All rights reserved.</p>
+    </footer>
 
-        <button
-          class="product-card"
-          data-product-id="digital"
-          data-name="Digital Dossier"
-          data-price="45"
-        >
-          <div class="product-main">
-            <h3>Digital Dossier</h3>
-            <p class="product-desc">
-              Phone-friendly, shareable memorial file delivered via email.
-            </p>
-          </div>
-          <div class="product-meta">
-            <span class="product-price">$45</span>
-          </div>
-        </button>
-      </div>
-    </section>
+    <style>
+        .landing-layout {
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
 
-    <!-- Right: Order + checkout -->
-    <section class="panel panel-order">
-      <div class="panel-header">
-        <h2>Current Order</h2>
-        <p class="panel-subtitle">Inner Circle checkout for one companion at a time.</p>
-      </div>
+        .panel-hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-      <div class="order-summary" id="orderSummary">
-        <p class="order-empty">No items yet. Tap a package to begin.</p>
-      </div>
+        .hero-description {
+            margin: 0.8rem 0;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
 
-      <div class="order-totals">
-        <div class="totals-row">
-          <span>Subtotal</span>
-          <span id="subtotal">$0.00</span>
-        </div>
-        <div class="totals-row">
-          <span>Estimated Tax</span>
-          <span id="tax">$0.00</span>
-        </div>
-        <div class="totals-row totals-row-strong">
-          <span>Total</span>
-          <span id="total">$0.00</span>
-        </div>
-      </div>
+        .hero-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin-top: 1rem;
+        }
 
-      <form id="checkoutForm" class="checkout-form" novalidate>
-        <h3>Companion Details</h3>
+        .hero-nav a {
+            text-decoration: none;
+            width: 100%;
+        }
 
-        <div class="form-group">
-          <label for="petName">Pet’s Name</label>
-          <input type="text" id="petName" name="petName" required />
-        </div>
+        .featured-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin-top: 0.8rem;
+        }
 
-        <div class="form-group">
-          <label for="petTitle">Official Title</label>
-          <input
-            type="text"
-            id="petTitle"
-            name="petTitle"
-            placeholder="e.g., CEO of Couch Security"
-            required
-          />
-        </div>
+        .featured-card {
+            border-radius: 14px;
+            border: 1px solid rgba(55, 65, 81, 0.9);
+            background: rgba(15, 23, 42, 0.6);
+            padding: 0.9rem;
+            transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+        }
 
-        <h3>Contact</h3>
+        .featured-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+            background: rgba(15, 23, 42, 0.9);
+        }
 
-        <div class="form-group">
-          <label for="yourName">Your Name</label>
-          <input type="text" id="yourName" name="yourName" required />
-        </div>
+        .featured-card.featured-accent {
+            border-color: rgba(248, 113, 22, 0.5);
+            background: rgba(248, 113, 22, 0.05);
+        }
 
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" required />
-        </div>
+        .featured-card h3 {
+            margin: 0 0 0.4rem;
+            font-size: 0.9rem;
+        }
 
-        <div class="form-group">
-          <label for="notes">Notes (optional)</label>
-          <textarea
-            id="notes"
-            name="notes"
-            rows="3"
-            placeholder="Anything special we should know about their story or timing?"
-          ></textarea>
-        </div>
+        .featured-price {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
 
-        <div class="checkout-actions">
-          <button type="submit" class="primary" id="checkoutBtn" disabled>
-            Confirm Order &amp; Generate Summary
-          </button>
-          <button type="button" class="secondary" id="clearOrderBtn">
-            Clear Order
-          </button>
-        </div>
-      </form>
+        .featured-desc {
+            margin: 0.3rem 0 0.5rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
 
-      <section id="orderReceipt" class="receipt hidden">
-        <h3>Order Summary</h3>
-        <pre id="receiptContent" class="receipt-content"></pre>
-      </section>
-    </section>
-  </main>
+        .featured-tag {
+            display: inline-block;
+            margin: 0;
+            padding: 0.15rem 0.5rem;
+            border-radius: var(--radius-pill);
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            font-size: 0.65rem;
+            color: var(--text-muted);
+        }
 
-  <script src="script.js"></script>
+        .featured-tag-best {
+            border-color: rgba(248, 113, 22, 0.8);
+            color: #fed7aa;
+        }
+
+        .site-footer {
+            padding: 1.5rem 4vw;
+            text-align: center;
+            border-top: 1px solid rgba(31, 41, 55, 0.9);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .site-footer p {
+            margin: 0.3rem 0;
+        }
+
+        @media (max-width: 900px) {
+            .landing-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </body>
 </html>
-
