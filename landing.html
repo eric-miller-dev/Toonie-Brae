@@ -3,31 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toonie Brae - Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Everlasting Inner Circle – Welcome</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to Toonie Brae</h1>
-        <nav>
-            <ul>
-                <li><a href="/pos-system.html">Point of Sale System</a></li>
-                <li><a href="/sales-items.html">Sales Items</a></li>
-            </ul>
-        </nav>
+    <header class="site-header">
+        <div class="logo-block">
+            <div class="logo-mark">IC</div>
+            <div class="logo-text">
+                <h1>Everlasting Inner Circle</h1>
+                <p>Memorial Packages</p>
+            </div>
+        </div>
     </header>
-    <main>
-        <section id="featured-services">
-            <h2>Featured Services</h2>
-            <p>Explore our top-notch services that meet your needs and exceed your expectations.</p>
+
+    <main class="layout landing-layout">
+        <section class="panel panel-hero">
+            <div class="panel-header">
+                <h2>Celebrate the Life of Your Cherished Companion</h2>
+            </div>
+            <p class="hero-description">
+                At Everlasting Inner Circle, we provide thoughtfully designed memorial packages to honor and preserve the memories of your beloved pets.
+            </p>
+            <div class="hero-nav">
+                <a href="sales-items.html" class="primary">Browse All Packages</a>
+                <a href="index.html" class="secondary">Start Your Order</a>
+            </div>
         </section>
-        <section id="about">
-            <h2>About Us</h2>
-            <p>At Toonie Brae, we strive to provide the best solutions for our customers.</p>
+
+        <section class="panel panel-featured">
+            <div class="panel-header">
+                <h2>Our Memorial Packages</h2>
+                <p class="panel-subtitle">Choose the perfect way to honor your companion.</p>
+            </div>
+            <div class="featured-grid">
+                <div class="featured-card">
+                    <h3>Legacy Portrait</h3>
+                    <p class="featured-price">$120</p>
+                    <p class="featured-desc">Framed portrait with official title on archival paper.</p>
+                    <p class="featured-tag">Most Chosen</p>
+                </div>
+                <div class="featured-card">
+                    <h3>Dossier &amp; Service Record</h3>
+                    <p class="featured-price">$80</p>
+                    <p class="featured-desc">Typed story and service record for frame or archive.</p>
+                </div>
+                <div class="featured-card featured-accent">
+                    <h3>Memorial Bundle</h3>
+                    <p class="featured-price">$185</p>
+                    <p class="featured-desc">Portrait + Dossier + small keepsake.</p>
+                    <p class="featured-tag featured-tag-best">Best Value</p>
+                </div>
+                <div class="featured-card">
+                    <h3>Digital Dossier</h3>
+                    <p class="featured-price">$45</p>
+                    <p class="featured-desc">Shareable memorial file delivered via email.</p>
+                </div>
+            </div>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2026 Toonie Brae. All rights reserved.</p>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Everlasting Inner Circle. All rights reserved.</p>
     </footer>
+
+    <style>
+        .landing-layout {
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .panel-hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-description {
+            margin: 0.8rem 0;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .hero-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin-top: 1rem;
+        }
+
+        .hero-nav a {
+            text-decoration: none;
+            width: 100%;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin-top: 0.8rem;
+        }
+
+        .featured-card {
+            border-radius: 14px;
+            border: 1px solid rgba(55, 65, 81, 0.9);
+            background: rgba(15, 23, 42, 0.6);
+            padding: 0.9rem;
+            transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        .featured-card.featured-accent {
+            border-color: rgba(248, 113, 22, 0.5);
+            background: rgba(248, 113, 22, 0.05);
+        }
+
+        .featured-card h3 {
+            margin: 0 0 0.4rem;
+            font-size: 0.9rem;
+        }
+
+        .featured-price {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .featured-desc {
+            margin: 0.3rem 0 0.5rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .featured-tag {
+            display: inline-block;
+            margin: 0;
+            padding: 0.15rem 0.5rem;
+            border-radius: var(--radius-pill);
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            font-size: 0.65rem;
+            color: var(--text-muted);
+        }
+
+        .featured-tag-best {
+            border-color: rgba(248, 113, 22, 0.8);
+            color: #fed7aa;
+        }
+
+        .site-footer {
+            padding: 1.5rem 4vw;
+            text-align: center;
+            border-top: 1px solid rgba(31, 41, 55, 0.9);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .site-footer p {
+            margin: 0.3rem 0;
+        }
+
+        @media (max-width: 900px) {
+            .landing-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </body>
 </html>

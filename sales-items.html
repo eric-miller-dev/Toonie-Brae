@@ -3,48 +3,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sales Catalog for Memorial Packages</title>
+    <title>Everlasting Inner Circle – Memorial Packages Catalog</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Memorial Packages</h1>
-        <nav>
-            <ul>
-                <li><a href="landing.html">Landing Page</a></li>
-                <li><a href="index.html">Home</a></li>
-            </ul>
-        </nav>
+    <header class="site-header">
+        <div class="logo-block">
+            <div class="logo-mark">IC</div>
+            <div class="logo-text">
+                <h1>Everlasting Inner Circle</h1>
+                <p>Memorial Packages Catalog</p>
+            </div>
+        </div>
     </header>
-    <main>
-        <section>
-            <article>
-                <h2>Legacy Portrait</h2>
-                <p>Description: A beautiful portrait to celebrate a loved one’s legacy.</p>
-                <p>Price: $299</p>
-                <p>Features: Online proofing, various sizes available.</p>
+
+    <main class="catalog-layout">
+        <section class="panel catalog-hero">
+            <div class="panel-header">
+                <h2>Memorial Packages Catalog</h2>
+                <p class="panel-subtitle">Discover our thoughtfully curated packages to honor your beloved companion.</p>
+            </div>
+        </section>
+
+        <section class="catalog-grid">
+            <!-- Legacy Portrait Package -->
+            <article class="panel catalog-card">
+                <div class="catalog-card-header">
+                    <h3>Legacy Portrait</h3>
+                    <span class="catalog-price">$120</span>
+                </div>
+                <p class="catalog-desc">
+                    Framed, high-resolution portrait with official title on archival paper.
+                </p>
+                <ul class="catalog-features">
+                    <li>Professional framing</li>
+                    <li>High-resolution imaging</li>
+                    <li>Archival-quality paper</li>
+                    <li>Custom title placement</li>
+                </ul>
+                <div class="catalog-footer">
+                    <span class="product-tag">Most Chosen</span>
+                </div>
             </article>
-            <article>
-                <h2>Dossier & Service Record</h2>
-                <p>Description: Comprehensive service record and memorial dossier.</p>
-                <p>Price: $199</p>
-                <p>Features: Detailed documentation, personalized design.</p>
+
+            <!-- Dossier & Service Record Package -->
+            <article class="panel catalog-card">
+                <div class="catalog-card-header">
+                    <h3>Dossier &amp; Service Record</h3>
+                    <span class="catalog-price">$80</span>
+                </div>
+                <p class="catalog-desc">
+                    Typed story and service record, ready for frame back or digital archive.
+                </p>
+                <ul class="catalog-features">
+                    <li>Professional typing and layout</li>
+                    <li>Service history documentation</li>
+                    <li>Digital and print formats</li>
+                    <li>Ready-to-frame presentation</li>
+                </ul>
+                <div class="catalog-footer">
+                </div>
             </article>
-            <article>
-                <h2>Memorial Bundle</h2>
-                <p>Description: Combination of our top memorial packages.</p>
-                <p>Price: $499</p>
-                <p>Features: Includes Legacy Portrait & Dossier.</p>
+
+            <!-- Memorial Bundle Package -->
+            <article class="panel catalog-card catalog-card-featured">
+                <div class="catalog-card-header">
+                    <h3>Memorial Bundle</h3>
+                    <span class="catalog-price">$185</span>
+                </div>
+                <p class="catalog-desc">
+                    Legacy Portrait + Dossier &amp; Service Record + small keepsake.
+                </p>
+                <ul class="catalog-features">
+                    <li>Complete memorial package</li>
+                    <li>Portrait and documentation</li>
+                    <li>Premium keepsake item</li>
+                    <li>All-inclusive preservation</li>
+                </ul>
+                <div class="catalog-footer">
+                    <span class="product-tag product-tag-accent">Best Value</span>
+                </div>
             </article>
-            <article>
-                <h2>Digital Dossier</h2>
-                <p>Description: An electronic version of the memorial dossier.</p>
-                <p>Price: $99</p>
-                <p>Features: Easily shareable, high-resolution files.</p>
+
+            <!-- Digital Dossier Package -->
+            <article class="panel catalog-card">
+                <div class="catalog-card-header">
+                    <h3>Digital Dossier</h3>
+                    <span class="catalog-price">$45</span>
+                </div>
+                <p class="catalog-desc">
+                    Phone-friendly, shareable memorial file delivered via email.
+                </p>
+                <ul class="catalog-features">
+                    <li>Mobile-optimized format</li>
+                    <li>Easy sharing capabilities</li>
+                    <li>Email delivery</li>
+                    <li>Digital archiving</li>
+                </ul>
+                <div class="catalog-footer">
+                </div>
             </article>
         </section>
+
+        <section class="panel catalog-cta">
+            <h2>Ready to Honor Your Companion?</h2>
+            <p>Visit our Point of Sale system to create a personalized memorial order.</p>
+            <div class="cta-actions">
+                <a href="index.html" class="primary">Proceed to Checkout</a>
+                <a href="landing.html" class="secondary">Back to Home</a>
+            </div>
+        </section>
     </main>
-    <footer>
-        <p>&copy; 2026 Toonie Brae. All Rights Reserved.</p>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Everlasting Inner Circle. All rights reserved.</p>
+        <p>Honoring the memories that last forever.</p>
     </footer>
+
+    <style>
+        .catalog-layout {
+            padding: 1rem 4vw 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .catalog-hero {
+            margin-bottom: 1.5rem;
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .catalog-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .catalog-card-featured {
+            border-color: rgba(248, 113, 22, 0.5);
+            background: radial-gradient(circle at top left, rgba(248, 113, 22, 0.05), #020617);
+        }
+
+        .catalog-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .catalog-card h3 {
+            margin: 0;
+            font-size: 1rem;
+            flex: 1;
+        }
+
+        .catalog-price {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent);
+            white-space: nowrap;
+        }
+
+        .catalog-desc {
+            margin: 0 0 0.8rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .catalog-features {
+            margin: 0 0 0.8rem;
+            padding-left: 1.2rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            flex-grow: 1;
+        }
+
+        .catalog-features li {
+            margin: 0.25rem 0;
+        }
+
+        .catalog-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.4rem;
+        }
+
+        .catalog-cta {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .catalog-cta h2 {
+            margin: 0 0 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .catalog-cta p {
+            margin: 0 0 1rem;
+            color: var(--text-muted);
+        }
+
+        .cta-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .cta-actions a {
+            text-decoration: none;
+            width: 100%;
+        }
+
+        .site-footer {
+            padding: 1.5rem 4vw;
+            text-align: center;
+            border-top: 1px solid rgba(31, 41, 55, 0.9);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .site-footer p {
+            margin: 0.3rem 0;
+        }
+
+        @media (max-width: 640px) {
+            .catalog-layout {
+                padding: 1rem 3vw 1.5rem;
+            }
+
+            .catalog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-actions {
+                max-width: 100%;
+            }
+        }
+    </style>
 </body>
 </html>
