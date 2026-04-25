@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Everlasting Inner Circle – Memorial Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo-block">
+            <div class="logo-mark">IC</div>
+            <div class="logo-text">
+                <h1>Everlasting Inner Circle</h1>
+                <p>Memorial Gallery</p>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="gallery.html" class="active">Gallery</a>
+            <a href="sales-items.html">Packages</a>
+            <a href="checkout.html">Checkout</a>
+        </nav>
+    </header>
+
+    <main class="gallery-layout">
+        <section class="panel gallery-hero">
+            <div class="panel-header">
+                <h2>Memorial Gallery</h2>
+                <p class="panel-subtitle">Celebrating the cherished companions who have touched our lives.</p>
+            </div>
+        </section>
+
+        <section class="gallery-grid">
+            <div class="gallery-item">
+                <img src="images/legacy-portrait.jpg" alt="Legacy Portrait Example">
+                <p>Whiskers - The Eternal Guardian</p>
+            </div>
+            <div class="gallery-item">
+                <img src="images/dossier-example.jpg" alt="Dossier Example">
+                <p>Buddy - Service Record</p>
+            </div>
+            <div class="gallery-item">
+                <img src="images/bundle-example.jpg" alt="Bundle Example">
+                <p>Midnight - Memorial Bundle</p>
+            </div>
+            <div class="gallery-item">
+                <img src="images/digital-dossier.jpg" alt="Digital Dossier Example">
+                <p>Shadow - Digital Memorial</p>
+            </div>
+            <div class="gallery-item">
+                <img src="images/portrait-2.jpg" alt="Another Portrait">
+                <p>Luna - Legacy Portrait</p>
+            </div>
+            <div class="gallery-item">
+                <img src="images/service-record-2.jpg" alt="Another Service Record">
+                <p>Max - Dossier</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Everlasting Inner Circle. All rights reserved.</p>
+    </footer>
+
+    <style>
+        .main-nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .main-nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            transition: background 0.15s ease;
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+
+        .gallery-layout {
+            padding: 1rem 4vw 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-hero {
+            margin-bottom: 1.5rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--bg-elevated);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            box-shadow: var(--shadow-subtle);
+            transition: transform 0.15s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .gallery-item p {
+            padding: 0.8rem;
+            margin: 0;
+            font-size: 0.9rem;
+            text-align: center;
+            color: var(--text-main);
+        }
+
+        .site-footer {
+            padding: 1.5rem 4vw;
+            text-align: center;
+            border-top: 1px solid rgba(31, 41, 55, 0.9);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .site-footer p {
+            margin: 0.3rem 0;
+        }
+
+        @media (max-width: 640px) {
+            .main-nav {
+                display: none; /* For mobile, could add hamburger later */
+            }
+
+            .gallery-layout {
+                padding: 1rem 3vw 1.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - Everlasting Inner Circle</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Menu Button & Navigation -->
+  <button id="menuToggle" class="menu-toggle" aria-label="Toggle menu">☰</button>
+  <nav id="navMenu" class="nav-menu hidden">
+    <a href="index.html" class="nav-link">Shop</a>
+    <a href="gallery.html" class="nav-link">Gallery</a>
+  </nav>
+
+  <main>
+    <h1>Gallery</h1>
+    <div id="gallery" class="gallery-grid"></div>
+  </main>
+
+  <script src="gallery.js"></script>
+  <script src="menu.js"></script>
+</body>
+</html>

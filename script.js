@@ -1,10 +1,10 @@
 const TAX_RATE = 0.07;
 
 const products = {
-  legacy: { id: "legacy", name: "Legacy Portrait", price: 120 },
-  dossier: { id: "dossier", name: "Dossier & Service Record", price: 80 },
-  bundle: { id: "bundle", name: "Memorial Bundle", price: 185 },
-  digital: { id: "digital", name: "Digital Dossier", price: 45 },
+  legacy: { id: "legacy", name: "Legacy Portrait", price: 55 },
+  dossier: { id: "dossier", name: "Dossier & Service Record", price: 45 },
+  bundle: { id: "bundle", name: "Memorial Bundle", price: 75 },
+  digital: { id: "digital", name: "Digital Dossier", price: 25 },
 };
 
 let cart = {};
