@@ -28,21 +28,35 @@
             <div class="panel-header">
                 <h2>Celebrate the Life of Your Cherished Companion</h2>
             </div>
-            <p class="hero-description">
+        <!-- <p class="hero-description">
                 At Everlasting Inner Circle, we provide thoughtfully designed memorial packages to honor and preserve the memories of your beloved pets.
             </p>
+        -->
             <div class="hero-nav">
                 <a href="sales-items.html" class="primary">Browse All Packages</a>
                 <a href="checkout.html" class="secondary">Start Your Order</a>
             </div>
+            <div class="hero-main-image">
+                <img src="images/hero-image.jpg" alt="Happy dog looking up at the sky with a sunset background">
+                <p>Happy dog looking up at the sky with a sunset background</p>
+                <p>Whiskers - The Eternal Guardian</p>
+                <p>Buddy - Service Record</p>
+            </div>
+
         </section>
 
         <section class="panel panel-featured">
             <div class="panel-header">
-                <h2>Our Memorial Packages</h2>
+                <h2>Our Mission of Honoring</h2>
                 <p class="panel-subtitle">Choose the perfect way to honor your companion.</p>
             </div>
-            <div class="featured-grid">
+            <p class="mission-desc">Everlasting Inner Circle is dedicated to preserving the legacy of our beloved companions. 
+                We believe that by honoring their memories, we can ensure their legacy lives on in their own time. Our mission
+                is to provide thoughtfully designed memorial packages that honor and preserve the memories of your beloved 
+                pets.
+            </p>
+
+            <!-- <div class="featured-grid">
                 <div class="featured-card">
                     <h3>Legacy Portrait</h3>
                     <p class="featured-price">$55</p>
@@ -65,7 +79,7 @@
                     <p class="featured-price">$25</p>
                     <p class="featured-desc">Shareable memorial file delivered via email.</p>
                 </div>
-            </div>
+            </div> -->
         </section>
     </main>
 
@@ -92,6 +106,23 @@
             line-height: 1.5;
         }
 
+        .hero-main-image {
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--bg-elevated);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            box-shadow: var(--shadow-subtle);
+            transition: transform 0.15s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 600px;
+            height: 400px;
+            object-fit: fill;
+
+        }
+        
         .hero-nav {
             display: flex;
             flex-direction: column;
