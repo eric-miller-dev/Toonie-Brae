@@ -15,7 +15,15 @@
                 <p>Memorial Packages</p>
             </div>
         </div>
-        <nav class="main-nav">
+
+        <!-- Hamburger for small screens -->
+        <button id="hamburgerBtn" class="hamburger" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="bar bar1"></span>
+            <span class="bar bar2"></span>
+            <span class="bar bar3"></span>
+        </button>
+
+        <nav id="mainNav" class="main-nav" role="navigation">
             <a href="index.html" class="active">Home</a>
             <a href="gallery.html">Gallery</a>
             <a href="sales-items.html">Packages</a>
@@ -32,12 +40,12 @@
                 At Everlasting Inner Circle, we provide thoughtfully designed memorial packages to honor and preserve the memories of your beloved pets.
             </p>
         -->
-            <div class="hero-nav">
-                <a href="sales-items.html" class="primary">Browse All Packages</a>
-                <a href="checkout.html" class="secondary">Start Your Order</a>
-            </div>
             <div class="hero-main-image">
-                <img src="images/hero-image.jpg" alt="Happy dog looking up at the sky with a sunset background">
+                <img src="images/hero-image.jpg"
+                     srcset="images/hero-image.jpg 1200w"
+                     sizes="(max-width: 720px) 100vw, 600px"
+                     loading="lazy"
+                     alt="Happy dog looking up at the sky with a sunset background">
                 <p>Happy dog looking up at the sky with a sunset background</p>
                 <p>Whiskers - The Eternal Guardian</p>
                 <p>Buddy - Service Record</p>
@@ -87,160 +95,5 @@
         <p>&copy; 2026 Everlasting Inner Circle. All rights reserved.</p>
     </footer>
 
-    <style>
-        .landing-layout {
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .panel-hero {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .hero-description {
-            margin: 0.8rem 0;
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        .hero-main-image {
-            border-radius: 16px;
-            overflow: hidden;
-            background: var(--bg-elevated);
-            border: 1px solid rgba(148, 163, 184, 0.35);
-            box-shadow: var(--shadow-subtle);
-            transition: transform 0.15s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 600px;
-            height: 400px;
-            object-fit: fill;
-
-        }
-        
-        .hero-nav {
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-            margin-top: 1rem;
-        }
-
-        .hero-nav a {
-            text-decoration: none;
-            width: 100%;
-        }
-
-        .featured-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.8rem;
-            margin-top: 0.8rem;
-        }
-
-        .featured-card {
-            border-radius: 14px;
-            border: 1px solid rgba(55, 65, 81, 0.9);
-            background: rgba(15, 23, 42, 0.6);
-            padding: 0.9rem;
-            transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
-        }
-
-        .featured-card:hover {
-            transform: translateY(-2px);
-            border-color: var(--accent);
-            background: rgba(15, 23, 42, 0.9);
-        }
-
-        .featured-card.featured-accent {
-            border-color: rgba(248, 113, 22, 0.5);
-            background: rgba(248, 113, 22, 0.05);
-        }
-
-        .featured-card h3 {
-            margin: 0 0 0.4rem;
-            font-size: 0.9rem;
-        }
-
-        .featured-price {
-            margin: 0;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--accent);
-        }
-
-        .featured-desc {
-            margin: 0.3rem 0 0.5rem;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            line-height: 1.4;
-        }
-
-        .featured-tag {
-            display: inline-block;
-            margin: 0;
-            padding: 0.15rem 0.5rem;
-            border-radius: var(--radius-pill);
-            border: 1px solid rgba(148, 163, 184, 0.4);
-            font-size: 0.65rem;
-            color: var(--text-muted);
-        }
-
-        .featured-tag-best {
-            border-color: rgba(248, 113, 22, 0.8);
-            color: #fed7aa;
-        }
-
-        .site-footer {
-            padding: 1.5rem 4vw;
-            text-align: center;
-            border-top: 1px solid rgba(31, 41, 55, 0.9);
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .site-footer p {
-            margin: 0.3rem 0;
-        }
-
-        @media (max-width: 900px) {
-            .landing-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .featured-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .main-nav {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .main-nav a {
-            color: var(--text-main);
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: var(--radius-md);
-            transition: background 0.15s ease;
-        }
-
-        .main-nav a:hover,
-        .main-nav a.active {
-            background: var(--accent-soft);
-            color: var(--accent);
-        }
-
-        @media (max-width: 640px) {
-            .main-nav {
-                display: none; /* Could add hamburger menu later */
-            }
-        }
-    </style>
 </body>
 </html>

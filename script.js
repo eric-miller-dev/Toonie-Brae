@@ -274,3 +274,118 @@ if (clearOrderBtn) {
   }
 })();
 
+/*
+  Device detection utilities
+  - Prefer feature detection first (matchMedia, pointer capability, touch events)
+  - Only use the userAgent string when you need deep device-specific logic or to apply a precise workaround
+  - Export a small helper but do not call it automatically; call it only from code paths that truly require it.
+*/
+
+function getDeviceInfoFromUA(ua) {
+  // Accept optional ua string for server-side usage or testing; default to navigator.userAgent in browser
+  const userAgent = (typeof ua === 'string' && ua) || (typeof navigator !== 'undefined' && navigator.userAgent) || '';
+  const uaL = userAgent.toLowerCase();
+  const isAndroid = /android/.test(uaL);
+  const isIOS = /iphone|ipad|ipod/.test(uaL) || (/macintosh/.test(uaL) && typeof navigator !== 'undefined' && 'standalone' in navigator && navigator.maxTouchPoints > 0);
+  const isMobile = /mobile/.test(uaL) || isAndroid || isIOS;
+  const isSafari = /safari/.test(uaL) && !/chrome|crios|chromium|android/.test(uaL);
+  const isChrome = /chrome|crios|crmo/.test(uaL) && !/edge|opr\//.test(uaL);
+  return { isAndroid, isIOS, isMobile, isSafari, isChrome, userAgent };
+}
+
+function shouldRunDeviceSpecificLogic() {
+  // Example heuristic: prefer feature detection (coarse pointer indicates touch device)
+  try {
+    if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return true;
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return true;
+  } catch (e) {
+    // ignore and fall through
+  }
+  return false;
+}
+
+// Expose utilities for callers; they will only run a UA check when invoked explicitly.
+window.getDeviceInfoFromUA = getDeviceInfoFromUA;
+window.shouldRunDeviceSpecificLogic = shouldRunDeviceSpecificLogic;
+
+/* Apply a small set of device-specific fixes and enable the mobile hamburger menu behavior.
+   This deliberately calls the UA helper only when the heuristic indicates device-specific logic may be required.
+*/
+
+function applyDeviceSpecificFixes() {
+  if (typeof shouldRunDeviceSpecificLogic !== 'function' || typeof getDeviceInfoFromUA !== 'function') return;
+  try {
+    if (!shouldRunDeviceSpecificLogic()) {
+      // Prefer feature-detection; skip UA parsing when not likely useful
+    } else {
+      const dev = getDeviceInfoFromUA();
+      if (dev.isIOS && dev.isSafari) {
+        // Add a class that exposes small CSS adjustments for iOS Safari
+        document.documentElement.classList.add('ua-ios-safari');
+
+        // If sticky isn't well-supported, apply a simple fixed-header fallback
+        if (typeof CSS === 'undefined' || !CSS.supports || !CSS.supports('position', 'sticky')) {
+          const hdr = document.querySelector('.site-header');
+          if (hdr) {
+            hdr.classList.add('site-header--fixed-fallback');
+            // Ensure body has top padding so content doesn't jump under the header
+            const h = hdr.getBoundingClientRect().height || 60;
+            document.body.style.paddingTop = `${h}px`;
+          }
+        }
+      }
+    }
+  } catch (e) {
+    // defensive: don't break the main app
+    console.warn('Device-specific fixes failed', e);
+  }
+}
+
+// Toggle mobile nav (hamburger) — accessible behavior
+function setupHamburgerMenu() {
+  const btn = document.getElementById('hamburgerBtn');
+  const nav = document.getElementById('mainNav');
+  if (!btn || !nav) return;
+
+  btn.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(isOpen));
+    if (isOpen) {
+      // move focus into the nav for keyboard users
+      const firstLink = nav.querySelector('a');
+      if (firstLink) firstLink.focus();
+      // close when clicking outside
+      const closeOnClickOutside = (ev) => {
+        if (!nav.contains(ev.target) && ev.target !== btn) {
+          nav.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+          document.removeEventListener('click', closeOnClickOutside);
+        }
+      };
+      setTimeout(() => document.addEventListener('click', closeOnClickOutside), 0);
+    }
+  });
+
+  // allow Esc to close
+  document.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Escape') {
+      if (nav.classList.contains('open')) {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.focus();
+      }
+    }
+  });
+}
+
+// Run setup on DOM ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    applyDeviceSpecificFixes();
+    setupHamburgerMenu();
+  });
+} else {
+  applyDeviceSpecificFixes();
+  setupHamburgerMenu();
+}
+

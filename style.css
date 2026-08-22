@@ -26,6 +26,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--font-sans);
+  /* Fluid base font size for improved readability on mobile and desktop */
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 1.45;
   background: radial-gradient(circle at top left, #111827 0, #020617 55%);
   color: var(--text-main);
 }
@@ -70,7 +73,8 @@ body {
 
 .logo-text h1 {
   margin: 0;
-  font-size: 1.1rem;
+  /* Slightly larger, fluid heading so logo scales well */
+  font-size: clamp(1rem, 2.6vw, 1.25rem);
   letter-spacing: 0.03em;
 }
 
@@ -108,6 +112,206 @@ body {
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
   gap: 1rem;
   padding: 1rem 4vw 1.5rem;
+}
+
+/* Landing layout (two-column hero + aside on wide screens) */
+.landing-layout {
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* Hero / panel adjustments */
+.panel-hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-description {
+  margin: 0.8rem 0;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.hero-main-image {
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--bg-elevated);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: var(--shadow-subtle);
+  transition: transform 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 400px;
+  object-fit: fill;
+}
+
+.hero-main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.hero-nav a {
+  text-decoration: none;
+  width: 100%;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+/* Accessibility, responsive images, motion and mobile spacing improvements */
+
+/* Focus-visible for keyboard users */
+:focus-visible {
+  outline: 3px solid rgba(249,115,22,0.9);
+  outline-offset: 2px;
+}
+
+/* Respect reduced motion settings */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Make primary/secondary controls easier to tap on small screens */
+@media (max-width: 640px) {
+  .primary,
+  .secondary {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+  }
+
+  /* Increase layout padding and stack earlier for larger phones */
+  .layout {
+    padding: 1rem 4vw 1.5rem;
+  }
+
+  .panel {
+    padding: 1rem;
+  }
+}
+
+/* Mid-size breakpoint for phablets — improve spacing and stack columns earlier */
+@media (max-width: 720px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    padding-inline: 3vw;
+  }
+
+  .hero-main-image {
+    width: 100%;
+    height: auto;
+    max-height: 360px;
+  }
+
+  .hero-nav {
+    gap: 0.5rem;
+  }
+}
+
+/* UA-targeted tweaks (applied by JS when deep device-specific logic is needed) */
+.ua-ios-safari .site-header {
+  /* Safari on iOS needs the -webkit-backdrop-filter vendor prefix */
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  /* Improve stacking context for translucent header on iOS */
+  transform: translateZ(0);
+}
+
+/* Sticky header fallback: applied when position:sticky isn't reliable */
+.site-header--fixed-fallback {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* Hamburger (small-screen) */
+.hamburger {
+  display: none;
+  background: transparent;
+  border: none;
+  padding: 0.4rem;
+  margin-left: 0.6rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger .bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text-main);
+  margin: 4px 0;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+
+/* When active, rotate bars to form an X */
+.hamburger[aria-expanded="true"] .bar1 {
+  transform: translateY(6px) rotate(45deg);
+}
+.hamburger[aria-expanded="true"] .bar2 {
+  opacity: 0;
+}
+.hamburger[aria-expanded="true"] .bar3 {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Small screen nav (hidden by default, toggled via .open) */
+@media (max-width: 640px) {
+  .hamburger {
+    display: inline-flex;
+  }
+
+  /* Don't hide nav wholesale — allow JS to toggle visibility for accessible menu */
+  .main-nav {
+    display: none;
+    position: absolute;
+    right: 4vw;
+    top: calc(100% + 8px);
+    background: var(--bg-elevated);
+    border: 1px solid rgba(148,163,184,0.12);
+    padding: 0.6rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 160px;
+  }
+
+  .main-nav.open {
+    display: flex;
+  }
+
+  /* Make nav links full-width tappable on small screens */
+  .main-nav a {
+    display: block;
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+  }
 }
 
 .panel {
@@ -252,17 +456,30 @@ body {
 }
 
 .qty-btn {
-  width: 22px;
-  height: 22px;
+  /* Ensure a comfortable touch target while allowing compact layout on desktop */
+  min-width: 44px;
+  min-height: 44px;
+  width: auto;
+  height: auto;
+  padding: 0;
   border-radius: 999px;
   border: 1px solid rgba(55, 65, 81, 0.9);
   background: rgba(15, 23, 42, 0.9);
   color: var(--text-main);
-  font-size: 0.8rem;
+  font-size: 1rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+/* Make quantity controls slightly smaller on very large displays while keeping tap targets */
+@media (min-width: 1200px) {
+  .qty-btn {
+    min-width: 36px;
+    min-height: 36px;
+    font-size: 0.95rem;
+  }
 }
 
 .qty-value {
@@ -436,6 +653,15 @@ button {
 
 /* Responsive */
 
+/* Larger screens: allow the hero to behave responsively while keeping a two-column layout */
+@media (max-width: 1200px) {
+  .hero-main-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+  }
+}
+
 @media (max-width: 900px) {
   .layout {
     grid-template-columns: minmax(0, 1fr);
@@ -443,6 +669,24 @@ button {
 
   .panel-order {
     max-height: none;
+  }
+
+  /* Stack hero controls and image in a row on medium screens */
+  .hero-nav {
+    flex-direction: row;
+    gap: 0.6rem;
+    align-items: center;
+  }
+
+  .hero-main-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+  }
+
+  .hero-main-image img {
+    height: auto;
+    object-fit: cover;
   }
 }
 
@@ -458,5 +702,19 @@ button {
   .panel {
     padding: 0.9rem;
   }
+
+  .main-nav {
+    display: none; /* Could add hamburger menu later */
+  }
+
+  /* On very small screens, keep hero controls stacked and images scale naturally */
+  .hero-nav {
+    flex-direction: column;
+  }
+
+  .logo-text h1 {
+    font-size: 1rem;
+  }
 }
+
 
