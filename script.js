@@ -304,9 +304,15 @@ function shouldRunDeviceSpecificLogic() {
   return false;
 }
 
+function syncViewportHeight() {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
 // Expose utilities for callers; they will only run a UA check when invoked explicitly.
 window.getDeviceInfoFromUA = getDeviceInfoFromUA;
 window.shouldRunDeviceSpecificLogic = shouldRunDeviceSpecificLogic;
+window.syncViewportHeight = syncViewportHeight;
 
 /* Apply a small set of device-specific fixes and enable the mobile hamburger menu behavior.
    This deliberately calls the UA helper only when the heuristic indicates device-specific logic may be required.
@@ -381,11 +387,17 @@ function setupHamburgerMenu() {
 // Run setup on DOM ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
+    syncViewportHeight();
     applyDeviceSpecificFixes();
     setupHamburgerMenu();
+    window.addEventListener('resize', syncViewportHeight);
+    window.addEventListener('orientationchange', syncViewportHeight);
   });
 } else {
+  syncViewportHeight();
   applyDeviceSpecificFixes();
   setupHamburgerMenu();
+  window.addEventListener('resize', syncViewportHeight);
+  window.addEventListener('orientationchange', syncViewportHeight);
 }
 

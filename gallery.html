@@ -15,7 +15,14 @@
                 <p>Memorial Gallery</p>
             </div>
         </div>
-        <nav class="main-nav">
+
+        <button id="hamburgerBtn" class="hamburger" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="bar bar1"></span>
+            <span class="bar bar2"></span>
+            <span class="bar bar3"></span>
+        </button>
+
+        <nav id="mainNav" class="main-nav" role="navigation">
             <a href="index.html">Home</a>
             <a href="gallery.html" class="active">Gallery</a>
             <a href="sales-items.html">Packages</a>
@@ -139,10 +146,6 @@
         }
 
         @media (max-width: 640px) {
-            .main-nav {
-                display: none; /* For mobile, could add hamburger later */
-            }
-
             .gallery-layout {
                 padding: 1rem 3vw 1.5rem;
             }
@@ -152,13 +155,7 @@
             }
         }
     </style>
+
+    <script src="script.js"></script>
 </body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery - Everlasting Inner Circle</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
 </html>
