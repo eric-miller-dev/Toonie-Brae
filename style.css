@@ -676,7 +676,7 @@ button {
 
   .hero-main-image img {
     height: auto;
-    object-fit: cover;
+    object-fit: contain;
   }
 }
 
