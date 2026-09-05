@@ -139,17 +139,17 @@ body {
 .hero-main-image {
   border-radius: 16px;
   overflow: hidden;
-  background: var(--bg-elevated);
+  background: linear-gradient(135deg, rgba(30,41,59,0.9), rgba(15,23,42,0.9));
   border: 1px solid rgba(148, 163, 184, 0.35);
   box-shadow: var(--shadow-subtle);
   transition: transform 0.15s ease;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  width: 600px;
-  height: 400px;
-  object-fit: fill;
+  align-items: stretch;
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 4 / 3;
 }
 
 .hero-main-image img {
@@ -157,6 +157,23 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
+  background: linear-gradient(135deg, rgba(30,41,59,0.8), rgba(15,23,42,0.9));
+}
+
+.hero-main-image .image-fallback,
+.gallery-item.image-missing {
+  background: linear-gradient(135deg, rgba(30,41,59,0.95), rgba(15,23,42,0.95));
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.hero-main-image p {
+  margin: 0.45rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.8rem;
 }
 
 .hero-nav {

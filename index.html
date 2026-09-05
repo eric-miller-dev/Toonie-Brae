@@ -44,8 +44,10 @@
                 <img src="images/hero-image.jpg"
                      srcset="images/hero-image.jpg 1200w"
                      sizes="(max-width: 720px) 100vw, 600px"
-                     loading="lazy"
-                     alt="Happy dog looking up at the sky with a sunset background">
+                     loading="eager"
+                     decoding="async"
+                     alt="Happy dog looking up at the sky with a sunset background"
+                     onerror="this.style.display='none'; this.parentElement.classList.add('image-fallback');">
                 <p>Happy dog looking up at the sky with a sunset background</p>
                 <p>Whiskers - The Eternal Guardian</p>
                 <p>Buddy - Service Record</p>

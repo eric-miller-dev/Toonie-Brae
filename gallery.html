@@ -40,27 +40,27 @@
 
         <section class="gallery-grid">
             <div class="gallery-item">
-                <img src="images/legacy-portrait.jpg" alt="Legacy Portrait Example">
+                <img src="images/legacy-portrait.jpg" alt="Legacy Portrait Example" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('image-missing'); this.style.display='none';">
                 <p>Whiskers - The Eternal Guardian</p>
             </div>
             <div class="gallery-item">
-                <img src="images/dossier-example.jpg" alt="Dossier Example">
+                <img src="images/dossier-example.jpg" alt="Dossier Example" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('image-missing'); this.style.display='none';">
                 <p>Buddy - Service Record</p>
             </div>
             <div class="gallery-item">
-                <img src="images/bundle-example.jpg" alt="Bundle Example">
+                <img src="images/bundle-example.jpg" alt="Bundle Example" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('image-missing'); this.style.display='none';">
                 <p>Midnight - Memorial Bundle</p>
             </div>
             <div class="gallery-item">
-                <img src="images/digital-dossier.jpg" alt="Digital Dossier Example">
+                <img src="images/digital-dossier.jpg" alt="Digital Dossier Example" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('image-missing'); this.style.display='none';">
                 <p>Shadow - Digital Memorial</p>
             </div>
             <div class="gallery-item">
-                <img src="images/portrait-2.jpg" alt="Another Portrait">
+                <img src="images/portrait-2.jpg" alt="Another Portrait" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('image-missing'); this.style.display='none';">
                 <p>Luna - Legacy Portrait</p>
             </div>
             <div class="gallery-item">
-                <img src="images/service-record-2.jpg" alt="Another Service Record">
+                <img src="images/service-record-2.jpg" alt="Another Service Record" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('image-missing'); this.style.display='none';">
                 <p>Max - Dossier</p>
             </div>
         </section>
@@ -90,7 +90,7 @@
         .gallery-item {
             border-radius: 16px;
             overflow: hidden;
-            background: var(--bg-elevated);
+            background: linear-gradient(135deg, rgba(30,41,59,0.9), rgba(15,23,42,0.9));
             border: 1px solid rgba(148, 163, 184, 0.35);
             box-shadow: var(--shadow-subtle);
             transition: transform 0.15s ease;
@@ -102,8 +102,11 @@
 
         .gallery-item img {
             width: 100%;
-            height: 200px;
+            aspect-ratio: 4 / 3;
+            height: auto;
             object-fit: cover;
+            display: block;
+            background: linear-gradient(135deg, rgba(30,41,59,0.8), rgba(15,23,42,0.9));
         }
 
         .gallery-item p {
@@ -112,6 +115,20 @@
             font-size: 0.9rem;
             text-align: center;
             color: var(--text-main);
+        }
+
+        .gallery-item.image-missing {
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-muted);
+            background: linear-gradient(135deg, rgba(30,41,59,0.95), rgba(15,23,42,0.95));
+        }
+
+        .gallery-item.image-missing img {
+            display: none;
         }
 
         .site-footer {
