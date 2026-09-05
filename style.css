@@ -270,33 +270,53 @@ body {
 /* Hamburger (small-screen) */
 .hamburger {
   display: none;
-  background: transparent;
-  border: none;
-  padding: 0.4rem;
+  background: rgba(15, 23, 42, 0.96);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 999px;
+  padding: 0.55rem 0.85rem;
   margin-left: 0.6rem;
   cursor: pointer;
   align-items: center;
   justify-content: center;
+  gap: 0.55rem;
+  color: var(--text-main);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 24px rgba(2, 6, 23, 0.35);
+}
+
+.hamburger:hover {
+  border-color: rgba(249, 115, 22, 0.8);
+  box-shadow: 0 12px 28px rgba(249, 115, 22, 0.2);
+}
+
+.hamburger-label {
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .hamburger .bar {
   display: block;
-  width: 22px;
+  width: 14px;
   height: 2px;
   background: var(--text-main);
-  margin: 4px 0;
+  margin: 2px 0;
+  border-radius: 999px;
   transition: transform 0.18s ease, opacity 0.18s ease;
 }
 
 /* When active, rotate bars to form an X */
 .hamburger[aria-expanded="true"] .bar1 {
-  transform: translateY(6px) rotate(45deg);
+  transform: translateY(4px) rotate(45deg);
 }
 .hamburger[aria-expanded="true"] .bar2 {
   opacity: 0;
 }
 .hamburger[aria-expanded="true"] .bar3 {
-  transform: translateY(-6px) rotate(-45deg);
+  transform: translateY(-4px) rotate(-45deg);
 }
 
 /* Small screen nav (hidden by default, toggled via .open) */
